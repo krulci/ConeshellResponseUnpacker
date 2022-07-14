@@ -1,0 +1,24 @@
+POST https://api-priconne-redive.cygames.jp/check/game_start HTTP/1.1
+Host: api-priconne-redive.cygames.jp
+User-Agent: UnityPlayer/2018.4.21f1 (UnityWebRequest/1.0, libcurl/7.52.0-DEV)
+Accept: */*
+Accept-Encoding: identity
+SHORT-UDID: 000945B182?247<566B326>538>811=133B364C154267574274731783625234126621262
+SID: 0c174e0f51d036ca74c968a882c9f0b1
+PARAM: 34241df76f345b8982c3d0c84c5ff8d02ed7b758
+DEVICE: 3
+APP-VER: 6.3.0
+RES-VER: 10039710
+DEVICE-ID: 5c2c26ca4b77f867cbdfd059f7c3d95d9ec80ba2
+DEVICE-NAME: Zephyrus S GX531GWR (ASUSTeK COMPUTER INC.)
+GRAPHICS-DEVICE-NAME: NVIDIA GeForce RTX 2070 with Max-Q Design
+IP-ADDRESS: 192.168.1.154
+PLATFORM-OS-VERSION: Windows 10  (10.0.0) 64bit
+PLATFORM: 3
+LOCALE: Jpn
+BATTLE-LOGIC-VERSION: 4
+Content-Type: application/octet-stream
+X-Unity-Version: 2018.4.21f1
+Content-Length: 320
+
+wN4AAzv0sl6aSXOg1+L90Hw2Hgf71tMmAWfIydj5PYnIFhZY0EEz2ovrFUeCeU+RtX+Gy6srhW1C69LSOPoe/WtnhYM2XVMmQCjaELxHvI7CZ8mFS0r5ukyOehaaDFBLAk4HV8tAc3x69064bSXR5o39xiC87sOjdQR4jt3Aac9mv4jEsz1zr0rwSSebJbfY/9TOvHoD3bx6wUHz0yDJ1ECKyshmWA+NaDBpyHT3MyVFm+0FDS/q7sJkuZ2MPM0JfHoN/e1Zkuf0LCUhcwm5mC11fVgyYAqcfZw+F5s34Tb4MVmmCkT5VAhye2kYeA==

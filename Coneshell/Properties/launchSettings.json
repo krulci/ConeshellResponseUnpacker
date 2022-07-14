@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Unpacker": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}
