@@ -60,7 +60,7 @@ internal static class EIKMHAKFHOB
 
 	internal static LPGJJABFLKN _j;
 
-	[DllImport("coneshell")]
+	[DllImport(library_name)]
 	internal static extern IntPtr _fx00();
 
 	internal static void LoadLibrary()

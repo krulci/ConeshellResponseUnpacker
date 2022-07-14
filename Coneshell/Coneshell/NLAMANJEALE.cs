@@ -58,7 +58,9 @@ public static class NLAMANJEALE
 		if (num2 < 0)
 		{
 			string message = $"Failed to unpack server response ({LNIJKNGEPAJ[0]:X2}{LNIJKNGEPAJ[1]:X2}{LNIJKNGEPAJ[2]:X2}{LNIJKNGEPAJ[3]:X2})";
-			throw new ApplicationException(message);
+			//throw new ApplicationException(message);
+			Console.WriteLine(message);
+			return new byte[] {0,0,0,0,0,0,0,0};
 		}
 		int num3 = array[0] + (array[1] << 8) + (array[2] << 16) + (array[3] << 24);
 		byte[] array3;

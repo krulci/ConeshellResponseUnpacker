@@ -10,12 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>libs\UnityEngine.CoreModule.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Data\" />
   </ItemGroup>
 
