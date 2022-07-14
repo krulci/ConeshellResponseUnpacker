@@ -8,15 +8,6 @@ public class DKFNICOAOBC : IOOJBIAKBHA
 {
 	protected IntPtr vfsHandle = IntPtr.Zero;
 
-	public static int AFGBOOMJMOC
-	{
-		get
-		{
-			EIKMHAKFHOB.LoadLibrary();
-			return EIKMHAKFHOB._l();
-		}
-	}
-
 	public bool OpenCustomVFS(string KCCLLCOPPHF, byte[] AIAPAJCMNHD)
 	{
 		vfsHandle = EIKMHAKFHOB._i(AIAPAJCMNHD, AIAPAJCMNHD.Length, Encoding.UTF8.GetBytes(KCCLLCOPPHF + "\0"));

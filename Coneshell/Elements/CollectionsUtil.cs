@@ -1,5 +1,3 @@
-using System;
-
 namespace Elements;
 
 public static class CollectionsUtil
@@ -11,12 +9,5 @@ public static class CollectionsUtil
 			_contents[i] = _contents[i + 1];
 		}
 		_contents[_count - 1] = default(T);
-	}
-
-	public static T[] CopyAsNewInstance<T>(this T[] _sourceArray)
-	{
-		T[] array = new T[_sourceArray.Length];
-		Array.Copy(_sourceArray, array, _sourceArray.Length);
-		return array;
 	}
 }

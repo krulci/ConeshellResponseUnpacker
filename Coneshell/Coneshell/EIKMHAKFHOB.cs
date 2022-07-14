@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 
 namespace Coneshell;
 
-public static class EIKMHAKFHOB
+internal static class EIKMHAKFHOB
 {
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 	internal delegate IntPtr KKPBEJFODNJ();
@@ -36,15 +36,6 @@ public static class EIKMHAKFHOB
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 	internal delegate void LPGJJABFLKN(IntPtr IOGFGIEJMIA);
 
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	internal delegate int ONEGJAFOLEC();
-
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	internal delegate int EKFFPFMKCEN();
-
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	internal delegate void JEGFOJNGCGJ(byte[] AIAPAJCMNHD);
-
 	private static bool initialized;
 
 	private const string library_name = "coneshell";
@@ -69,12 +60,6 @@ public static class EIKMHAKFHOB
 
 	internal static LPGJJABFLKN _j;
 
-	internal static ONEGJAFOLEC _k;
-
-	internal static EKFFPFMKCEN _l;
-
-	internal static JEGFOJNGCGJ _m;
-
 	[DllImport("coneshell")]
 	internal static extern IntPtr _fx00();
 
@@ -83,20 +68,16 @@ public static class EIKMHAKFHOB
 		if (!initialized)
 		{
 			_a = GetProc<KKPBEJFODNJ>(_fx00());
-			_k = GetProc<ONEGJAFOLEC>(_a());
-			_l = GetProc<EKFFPFMKCEN>(_a());
-			_h = GetProc<BHBDNHLDKNN>(_a());
-			_m = GetProc<JEGFOJNGCGJ>(_a());
-			_c = GetProc<PJOMEBAODIO>(_a());
-			_b = GetProc<LMGILLAGDKG>(_a());
-			_f = GetProc<EAJGFHCFKEA>(_a());
-			_d = GetProc<AELFJENOLLD>(_a());
-			_j = GetProc<LPGJJABFLKN>(_a());
-			_i = GetProc<FOLPONLJCAP>(_a());
-			_g = GetProc<LFCFINDLALH>(_a());
 			_e = GetProc<OJKHCJHLGAP>(_a());
+			_g = GetProc<LFCFINDLALH>(_a());
+			_h = GetProc<BHBDNHLDKNN>(_a());
+			_c = GetProc<PJOMEBAODIO>(_a());
+			_i = GetProc<FOLPONLJCAP>(_a());
+			_j = GetProc<LPGJJABFLKN>(_a());
+			_b = GetProc<LMGILLAGDKG>(_a());
+			_d = GetProc<AELFJENOLLD>(_a());
+			_f = GetProc<EAJGFHCFKEA>(_a());
 			initialized = true;
-			EIJGKLKKOIF.RuntimeSetup();
 		}
 	}
 

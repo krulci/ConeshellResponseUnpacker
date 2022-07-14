@@ -45,12 +45,12 @@ public class ODBKLOJPCHG : IDisposable
 	public bool Step()
 	{
 		int num = ADAKPPDHFFB.sqlite3_step(_stmt);
-		bool num2 = num == 100;
-		if (!num2)
+		bool flag = num == 100;
+		if (!flag)
 		{
 			GGEABGPENAL.CheckCorruption(num);
 		}
-		return num2;
+		return flag;
 	}
 
 	public int GetInt(int KFPPPAAGDDL)
@@ -65,7 +65,8 @@ public class ODBKLOJPCHG : IDisposable
 
 	public string GetText(int KFPPPAAGDDL)
 	{
-		return Marshal.PtrToStringAnsi(ADAKPPDHFFB.sqlite3_column_text(_stmt, KFPPPAAGDDL));
+		IntPtr ptr = ADAKPPDHFFB.sqlite3_column_text(_stmt, KFPPPAAGDDL);
+		return Marshal.PtrToStringAnsi(ptr);
 	}
 
 	public byte[] GetBlob(int KFPPPAAGDDL)

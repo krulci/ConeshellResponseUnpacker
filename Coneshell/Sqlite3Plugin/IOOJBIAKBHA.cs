@@ -10,15 +10,15 @@ public class IOOJBIAKBHA : IDisposable
 
 	public string FLDJBDPJIKK { get; private set; }
 
-	~IOOJBIAKBHA()
-	{
-		CloseDB();
-	}
-
 	public IOOJBIAKBHA()
 	{
 		FLDJBDPJIKK = null;
 		CPJHOACKHFI = IntPtr.Zero;
+	}
+
+	~IOOJBIAKBHA()
+	{
+		CloseDB();
 	}
 
 	public bool Open(string OBODHBGPMEL, string KCCLLCOPPHF = null)
@@ -33,14 +33,14 @@ public class IOOJBIAKBHA : IDisposable
 		}
 		int num = ADAKPPDHFFB.sqlite3_open_v2(bytes, out MMGDKAGMKBN, 1, mJDHPFBDCJP);
 		CPJHOACKHFI = MMGDKAGMKBN;
-		bool num2 = num == 0;
-		if (num2)
+		bool flag = num == 0;
+		if (flag)
 		{
 			Exec("pragma journal_mode=OFF");
 			Exec("pragma synchronous=0");
 			Exec("pragma locking_mode=EXCLUSIVE");
 		}
-		return num2;
+		return flag;
 	}
 
 	public bool OpenWritable(string OBODHBGPMEL)
@@ -50,7 +50,8 @@ public class IOOJBIAKBHA : IDisposable
 		bool flag = true;
 		try
 		{
-			int num = ADAKPPDHFFB.sqlite3_open(Encoding.UTF8.GetBytes(OBODHBGPMEL + "\0"), out MMGDKAGMKBN);
+			byte[] bytes = Encoding.UTF8.GetBytes(OBODHBGPMEL + "\0");
+			int num = ADAKPPDHFFB.sqlite3_open(bytes, out MMGDKAGMKBN);
 			CPJHOACKHFI = MMGDKAGMKBN;
 			flag = num == 0;
 			if (flag)
@@ -112,7 +113,9 @@ public class IOOJBIAKBHA : IDisposable
 	{
 		if (CPJHOACKHFI != IntPtr.Zero)
 		{
-			ADAKPPDHFFB.sqlite3_close(CPJHOACKHFI);
+			if (ADAKPPDHFFB.sqlite3_close(CPJHOACKHFI) != 0)
+			{
+			}
 			CPJHOACKHFI = IntPtr.Zero;
 		}
 	}
@@ -124,7 +127,7 @@ public class IOOJBIAKBHA : IDisposable
 		int num = ADAKPPDHFFB.sqlite3_exec(CPJHOACKHFI, bytes, IntPtr.Zero, IntPtr.Zero, out HLNDLAOMGNM);
 		if (num != 0)
 		{
-			string oNLJIHPIGNL = ((HLNDLAOMGNM == IntPtr.Zero) ? "" : Marshal.PtrToStringAnsi(HLNDLAOMGNM));
+			string oNLJIHPIGNL = ((!(HLNDLAOMGNM == IntPtr.Zero)) ? Marshal.PtrToStringAnsi(HLNDLAOMGNM) : string.Empty);
 			GGEABGPENAL.CheckCorruption(num, oNLJIHPIGNL);
 		}
 		return num == 0;

@@ -1,21 +1,10 @@
 using System;
-using Elements;
+using System.Runtime.CompilerServices;
 
 namespace Coneshell;
 
 public static class NLAMANJEALE
 {
-	public static byte[] KeepPackNonce;
-
-	public static int AFGBOOMJMOC
-	{
-		get
-		{
-			EIKMHAKFHOB.LoadLibrary();
-			return EIKMHAKFHOB._k();
-		}
-	}
-
 	public static void InitializeContext(byte[] OANKCDECKGM, byte[] CBOIJPBHAOA)
 	{
 		EIKMHAKFHOB.LoadLibrary();
@@ -33,51 +22,58 @@ public static class NLAMANJEALE
 
 	public unsafe static byte[] Pack(byte[] IONGOKDBLFH)
 	{
+		//IL_0047: Incompatible stack types: I vs Ref
 		EIKMHAKFHOB.LoadLibrary();
 		byte[] array = new byte[16];
-		new Random().NextBytes(array);
-		KeepPackNonce = array.CopyAsNewInstance();
-		byte[] array2 = new byte[EIKMHAKFHOB._d(IONGOKDBLFH.Length, 0)];
-		int num;
-		fixed (byte* ptr = array2)
+		Random random = new Random();
+		random.NextBytes(array);
+		int num = EIKMHAKFHOB._d(IONGOKDBLFH.Length, 0);
+		byte[] array2 = new byte[num];
+		int num2;
+		fixed (byte* ptr = &(array2 != null && array2.Length != 0 ? ref array2[0] : ref *(byte*)null))
 		{
-			num = EIKMHAKFHOB._e((IntPtr)ptr, IONGOKDBLFH, IONGOKDBLFH.Length, array, 0);
+			num2 = EIKMHAKFHOB._e((IntPtr)ptr, IONGOKDBLFH, IONGOKDBLFH.Length, array, 0);
 		}
-		if (num < 0)
+		if (num2 < 0)
 		{
 			throw new ApplicationException("Failed to pack payload");
 		}
-		Array.Resize(ref array2, num);
+		Array.Resize(ref array2, num2);
 		return array2;
 	}
 
 	public unsafe static byte[] Unpack(byte[] LNIJKNGEPAJ)
 	{
+		//IL_0031: Incompatible stack types: I vs Ref
+		//IL_00e0: Incompatible stack types: I vs Ref
+		//IL_00fe: Incompatible stack types: I vs Ref
 		EIKMHAKFHOB.LoadLibrary();
-		byte[] array = new byte[EIKMHAKFHOB._f(LNIJKNGEPAJ.Length)];
-		int num;
-		fixed (byte* ptr = array)
+		int num = EIKMHAKFHOB._f(LNIJKNGEPAJ.Length);
+		byte[] array = new byte[num];
+		int num2;
+		fixed (byte* ptr = &(array != null && array.Length != 0 ? ref array[0] : ref *(byte*)null))
 		{
-			num = EIKMHAKFHOB._g((IntPtr)ptr, LNIJKNGEPAJ, LNIJKNGEPAJ.Length);
+			num2 = EIKMHAKFHOB._g((IntPtr)ptr, LNIJKNGEPAJ, LNIJKNGEPAJ.Length);
 		}
-		if (num < 0)
+		if (num2 < 0)
 		{
-			throw new ApplicationException($"Failed to unpack server response ({LNIJKNGEPAJ[0]:X2}{LNIJKNGEPAJ[1]:X2}{LNIJKNGEPAJ[2]:X2}{LNIJKNGEPAJ[3]:X2})");
+			string message = $"Failed to unpack server response ({LNIJKNGEPAJ[0]:X2}{LNIJKNGEPAJ[1]:X2}{LNIJKNGEPAJ[2]:X2}{LNIJKNGEPAJ[3]:X2})";
+			throw new ApplicationException(message);
 		}
-		int num2 = array[0] + (array[1] << 8) + (array[2] << 16) + (array[3] << 24);
+		int num3 = array[0] + (array[1] << 8) + (array[2] << 16) + (array[3] << 24);
 		byte[] array3;
-		if (num2 > 0)
+		if (num3 > 0)
 		{
-			byte[] array2 = new byte[num2];
-			int num3;
-			fixed (byte* ptr2 = array2)
+			byte[] array2 = new byte[num3];
+			int num4;
+			fixed (byte* ptr2 = &(array2 != null && array2.Length != 0 ? ref array2[0] : ref *(byte*)null))
 			{
-				fixed (byte* ptr3 = array)
+				fixed (byte* ptr3 = &(array != null && array.Length != 0 ? ref array[0] : ref *(byte*)null))
 				{
-					num3 = EIKMHAKFHOB._h((IntPtr)ptr2, num2, (IntPtr)(ptr3 + 4), num - 4);
+					num4 = EIKMHAKFHOB._h((IntPtr)ptr2, num3, (IntPtr)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.Add(ref *ptr3, 4)), num2 - 4);
 				}
 			}
-			if (num3 < 0)
+			if (num4 < 0)
 			{
 				throw new ApplicationException("Failed to decompress");
 			}
@@ -85,8 +81,8 @@ public static class NLAMANJEALE
 		}
 		else
 		{
-			array3 = new byte[num - 4];
-			Array.Copy(array, 4, array3, 0, num - 4);
+			array3 = new byte[num2 - 4];
+			Array.Copy(array, 4, array3, 0, num2 - 4);
 		}
 		return array3;
 	}
